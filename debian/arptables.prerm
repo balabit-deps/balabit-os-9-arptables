@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" != "upgrade" ]; then
+    update-alternatives --remove arptables /usr/sbin/arptables-legacy
+fi
+
+if [ "$1" = "remove" ] ; then
+    if [ ! -L /sbin ] || [ "$(readlink /sbin)" != "usr/sbin" ]; then
+	LIST="arptables arptables-save arptables-restore"
+	for i in $LIST ; do
+	    if [ -L "/sbin/$i" ] ; then
+		rm /sbin/$i
+	    fi
+	done
+    fi
+fi
+
+#DEBHELPER#

@@ -1,0 +1,29 @@
+#!/bin/sh
+# postinst script for arptables
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# compat symlinks for /sbin -> /usr/sbin move, to be dropped in buster+1
+
+if [ "$1" = "configure" ]; then
+   LIST="arptables arptables-save arptables-restore"
+
+   for i in $LIST; do
+       if [ ! -e "/sbin/$i" ]; then
+	   ln -sf /usr/sbin/$i /sbin/$i
+       fi
+   done
+fi
+
+# Providing alternatives with lower priority than those provided by iptables >= 1.8
+
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ];then
+    update-alternatives \
+	--install /usr/sbin/arptables arptables /usr/sbin/arptables-legacy 10 \
+	--slave /usr/sbin/arptables-restore arptables-restore /usr/sbin/arptables-legacy-restore \
+	--slave /usr/sbin/arptables-save arptables-save /usr/sbin/arptables-legacy-save
+fi
+
+#DEBHELPER#

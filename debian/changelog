@@ -1,0 +1,164 @@
+arptables (0.0.5-3) unstable; urgency=medium
+
+  * [9e68e1c] d/tests/control: add isolation-machine restriction to tests
+
+ -- Alberto Molina Coballes <alb.molina@gmail.com>  Tue, 09 Jun 2020 15:47:38 +0000
+
+arptables (0.0.5-2) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * [4532b7e] debian/copyright: use spaces rather than tabs to start
+    continuation lines.
+  * [03a8516] Use secure URI in Homepage field.
+  * [52fdcb5] Bump debhelper from old 11 to 12.
+  * [e4d374e] Set debhelper-compat version in Build-Depends.
+  * [2f180ad] Use canonical URL in Vcs-Git.
+  * [4dba561] Update standards version to 4.5.0, no changes needed.
+
+  [ Alberto Molina Coballes ]
+  * [e4526ab] ebtables: bump debhelper-compat to 13
+  * [8e48f23] arptables: add basic autopkgtests
+
+ -- Alberto Molina Coballes <alb.molina@gmail.com>  Sat, 06 Jun 2020 15:49:40 +0000
+
+arptables (0.0.5-1) unstable; urgency=medium
+
+  * [660794f] d/watch: update upstream url regexp
+  * [1e49f0b] New upstream version 0.0.5
+  * [47d2e6f] d/control: bump std-version to 4.4.1
+
+ -- Alberto Molina Coballes <alb.molina@gmail.com>  Thu, 05 Dec 2019 09:19:42 +0000
+
+arptables (0.0.4+snapshot20181021-4) unstable; urgency=medium
+
+  [ Arturo Borrero Gonzalez ]
+  * [88703e1] src:arptables: add salsa CI integration
+
+  [ Alberto Molina Coballes ]
+  * [eb7a44d] d/arptables.prerm: Remove /sbin symlinks on not usr-merged systems
+    (Closes: #926728)
+
+ -- Alberto Molina Coballes <alb.molina@gmail.com>  Wed, 17 Apr 2019 15:24:53 +0000
+
+arptables (0.0.4+snapshot20181021-3) unstable; urgency=medium
+
+  * [090bcbc] d/dirs: /sbin no longer required
+  * [85e682e] d/patches: rename arptables-save and arptables-restore
+    (Closes: #918900)
+  * [a419984] d/arptables.manpages: rename arptables-* man pages
+  * [b8fc52f] d/patch: Add CPPFLAGS
+
+ -- Alberto Molina Coballes <alb.molina@gmail.com>  Fri, 11 Jan 2019 17:02:26 +0000
+
+arptables (0.0.4+snapshot20181021-2) unstable; urgency=medium
+
+  * [ce08bbe] d/arptables.prerm: iptables verification deleted
+
+ -- Alberto Molina Coballes <alb.molina@gmail.com>  Tue, 08 Jan 2019 16:31:48 +0000
+
+arptables (0.0.4+snapshot20181021-1) unstable; urgency=medium
+
+  * [2c7c7c6] New upstream version 0.0.4+snapshot20181021
+  * [c6b2324] d/patches: Adapt the default patch to the latest upstream version
+  * [3076713] arptables: introduce /sbin compatibility symlinks
+  * [4108b0d] arptables: introduce alternatives for /usr/sbin/arptables
+    (Closes: #916106)
+  * [f7b48be] d/control: bump std-version to 4.3.0
+
+ -- Alberto Molina Coballes <alb.molina@gmail.com>  Sun, 06 Jan 2019 17:00:42 +0000
+
+arptables (0.0.4-2) unstable; urgency=medium
+
+  * [1a26c32] d/patch: Add dpkg-buildflags
+  * [5869fd6] d/patches: cleanup sysvinit script (Closes: #897976)
+
+ -- Alberto Molina Coballes <alb.molina@gmail.com>  Wed, 09 May 2018 17:21:06 +0000
+
+arptables (0.0.4-1) unstable; urgency=medium
+
+  [ Alberto Molina Coballes ]
+  * [9e86b20] New upstream version 0.0.4
+
+  [ Arturo Borrero Gonzalez ]
+  * [8d554a1] d/patches: replace 01_Makefile.diff with
+    0001-debian-defaults.patch
+  * [5f8d185] d/patches: drop 02_manpage.diff
+  * [3b3324a] d/patches: drop 03_type.diff
+  * [b2d0146] d/patches: drop 04_arptables-save.diff
+
+  [ Alberto Molina Coballes ]
+  * [bbe8faf] Modifying debian/copyright according to DEP-5
+  * [fec4507] Updating debian/compat to 11
+  * [88f65fd] Updating maintainers and adding uploaders (Closes: #891758)
+  * [1a66102] Adding VCS-* headers
+  * [e87d9dd] Updating Homepage header
+  * [84776dc] Updating to debhelper 11
+  * [b210e11] Updating Standards-Version to 4.1.3
+  * [d8b2837] d/patches: refresh 0001_debian-defaults.patch
+  * [6623413] d/watch: updating upstream url
+
+ -- Alberto Molina Coballes <alb.molina@gmail.com>  Wed, 04 Apr 2018 16:24:23 +0000
+
+arptables (0.0.3.4-2) unstable; urgency=medium
+
+  * QA upload.
+  * Set maintainer to Debian QA Group. (see #891758)
+  * Package is Linux-only, change to Architecture: linux-any.
+    (Closes: #745161)
+
+ -- Adrian Bunk <bunk@debian.org>  Thu, 08 Mar 2018 15:42:17 +0200
+
+arptables (0.0.3.4-1) unstable; urgency=low
+
+  * New upstream release
+  * Switch to dpkg-source 3.0 (quilt) format
+  * Bump Standards version to 3.8.4
+
+ -- Jochen Friedrich <jochen@scram.de>  Thu, 06 May 2010 17:54:18 +0200
+
+arptables (0.0.3.3-3) unstable; urgency=low
+
+  * Change dpatch to quilt and simplify rules.
+  * Add README.source.
+  * Fix watch file.
+
+ -- Jochen Friedrich <jochen@scram.de>  Fri, 16 Oct 2009 19:09:15 +0200
+
+arptables (0.0.3.3-2) unstable; urgency=low
+
+  * Fix arptables-save
+   o Don't resolve hostnames (Closes: #533497)
+   o Omit '*' interface in rules (Closes: #533496)
+  * Bump Standards version to 3.8.3
+  * Add homepage tag
+
+ -- Jochen Friedrich <jochen@scram.de>  Wed, 19 Aug 2009 14:39:39 +0200
+
+arptables (0.0.3.3-1) unstable; urgency=low
+
+  * New upstream release
+   o includes fix for linux/config.h include file
+   o removed some compiler warnings
+   o include arptables-save / arptables-restore scripts
+  * Update watchfile to support subreleases
+  * Standards version 3.7.3
+  * Update to debhelper v7 / dpatch and replaced cdbs
+  * Include patch from Jeroen van Wolffelaar <jeroen@wolffelaar.nl> to make
+    iptables --proto-type also accept hexadecimal inputs (Closes: #411169)
+
+ -- Jochen Friedrich <jochen@scram.de>  Thu, 08 May 2008 17:43:16 +0200
+
+arptables (0.0.3-2) unstable; urgency=low
+
+  * Remove linux/config.h include file (Closes: #427264)
+    Thanks to Jose Luis Rivas Contreras <ghostbar38@gmail.com>
+  * Added watch file
+  * Standards version 3.7.2 (no changes)
+
+ -- Jochen Friedrich <jochen@scram.de>  Thu, 21 Jun 2007 14:06:06 +0200
+
+arptables (0.0.3-1) unstable; urgency=low
+
+  * Initial Release. (Closes: #212914)
+
+ -- Jochen Friedrich <jochen@scram.de>  Sat, 25 Oct 2003 15:54:19 +0200

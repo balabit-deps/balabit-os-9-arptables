@@ -1,0 +1,48 @@
+Description: Allow arptables build
+ This patch allows building arptables by making some minor
+ adaptations to debian specific directories.
+Forwarded: not-needed
+From: Debian Netfilter Packaging Team
+ <pkg-netfilter-team@lists.alioth.debian.org>
+Last-Update: 2019-01-06
+
+===================================================================
+
+--- a/Makefile
++++ b/Makefile
+@@ -2,18 +2,19 @@
+ 
+ KERNEL_DIR:=./
+ # default paths
+-PREFIX:=/usr/local
++PREFIX:=/usr
+ LIBDIR:=$(PREFIX)/lib
+ BINDIR:=$(PREFIX)/sbin
+-MANDIR:=$(PREFIX)/man
++MANDIR:=/usr/share/man
+ man8dir=$(MANDIR)/man8
+-SYSCONFIGDIR:=/etc/sysconfig
++SYSCONFIGDIR:=/etc/default
+ DESTDIR:=
+ 
+ MANS = arptables-legacy.8 arptables-save.8 arptables-restore.8
+ 
+ COPT_FLAGS:=-O2
+-CFLAGS:=$(COPT_FLAGS) -Wall -Wunused -I$(KERNEL_DIR)/include/ -Iinclude/ -DARPTABLES_VERSION=\"$(ARPTABLES_VERSION)\" #-g -DDEBUG #-pg # -DARPTC_DEBUG
++CFLAGS+=$(CPPFLAGS) $(COPT_FLAGS) -Wall -Wunused -I$(KERNEL_DIR)/include/ \
++-Iinclude/ -DARPTABLES_VERSION=\"$(ARPTABLES_VERSION)\" #-g -DDEBUG #-pg # -DARPTC_DEBUG
+ 
+ ifndef ARPT_LIBDIR
+ ARPT_LIBDIR:=$(LIBDIR)/arptables
+@@ -47,9 +48,9 @@
+ .PHONY: scripts
+ scripts: arptables-save arptables-restore
+ 	cat arptables-save | sed 's/__EXEC_PATH__/$(tmp1)/g' > arptables-save_
+-	install -m 0755 arptables-save_ $(DESTDIR)$(BINDIR)/arptables-save
++	install -m 0755 arptables-save_ $(DESTDIR)$(BINDIR)/arptables-legacy-save
+ 	cat arptables-restore | sed 's/__EXEC_PATH__/$(tmp1)/g' > arptables-restore_
+-	install -m 0755 arptables-restore_ $(DESTDIR)$(BINDIR)/arptables-restore
++	install -m 0755 arptables-restore_ $(DESTDIR)$(BINDIR)/arptables-legacy-restore
+ 	rm -f arptables-save_ arptables-restore_
+ 
+ .PHONY: install-man

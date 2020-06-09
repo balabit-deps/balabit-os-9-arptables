@@ -1,0 +1,11 @@
+arptables (0.0.4+snapshot20181021-1) unstable; urgency=medium
+
+  All the arptables binaries have been moved away from /sbin to
+  /usr/sbin. Some compatibility symlinks have been added for the
+  Buster release cycle, but please make sure your scripts aren't using
+  hardcoded binary paths.
+
+  The plan is to drop the symlinks in Bullseye, the release after
+  Buster.
+
+ -- Alberto Molina Coballes <alb.molina@gmail.com>  Sun,  6 Jan 2019 17:29:00 +0100
